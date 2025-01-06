@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/polaroid', function () {
     return view('produk.polaroid');
 });
+Route::get('/order', function () {
+    return view('order.polaroid');
+});

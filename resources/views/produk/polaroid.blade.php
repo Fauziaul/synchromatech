@@ -10,17 +10,20 @@
             <!-- Card 1 -->
             <div class="col-3 mt-4">
                 <div class="card icon-card cursor-pointer text-center border">
+                    
                     <div class="card-body">
+                        
                         <div class="col-12">
                             <figure class="image" style="width: 100%; margin: 0;">
-                                <img src="{{ asset('background/banner.png') }}" alt="PT Wings Surya" class="custom-image" />
-                            </figure>
+                                <a href="{{url('/order')}}"><img src="{{ asset('background/banner.png') }}" alt="PT Wings Surya" class="custom-image" /></a>
+                                </figure>
                         </div>
                         <div class="col-12 mt-3">
                             <p style="text-align: center; font-size: 18px; margin-bottom: 0;">Buku</p>
                             <p style="text-align: center; color:red; font-size: 16px; margin-bottom: 0;">Mulai dari Rp. 5.000.000</p>
                         </div>
                     </div>
+                   
                 </div>
             </div>
             
