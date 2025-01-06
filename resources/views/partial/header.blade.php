@@ -49,6 +49,13 @@
         border-top: px solid #b39d87; /* Garis pemisah */
         margin: 20px 0;
         }
+        .custom-image {
+        width: 110px;
+        height: 110px;
+        object-fit: cover; /* Menjaga proporsi gambar */
+        border-radius: 0; /* Opsional jika ingin sudut tetap tajam */
+        }
+
 
     </style>
 </head>
