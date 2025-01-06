@@ -23,7 +23,7 @@
         <div class="d-flex flex-wrap mt-5 ms-3" id="icons-container">
             <div class="card icon-card cursor-pointer text-center mb-4 mx-2">
                 <div class="card-body">
-                  <img src="{{ asset('icons/polaroid.png') }}" class="d-block w-100" style="max-height: 300px; object-fit: cover;">
+                  <a href="{{url('polaroid')}}"><img src="{{ asset('icons/polaroid.png') }}" class="d-block w-100" style="max-height: 300px; object-fit: cover;"></a>
                   <p class="icon-name text-capitalize text-truncate mb-0">Polaroid</p>
                 </div>
             </div>

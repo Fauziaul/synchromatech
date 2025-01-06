@@ -46,7 +46,7 @@
             font-weight: bold; /* Buat teks menjadi tebal saat aktif */
         }
         .footer-divider {
-        border-top: 2px solid #b39d87; /* Garis pemisah */
+        border-top: px solid #b39d87; /* Garis pemisah */
         margin: 20px 0;
         }
 
