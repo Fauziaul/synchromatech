@@ -83,6 +83,7 @@
             </button>
         </div>
     </nav>
+    @yield('page_script')
 </body>
 
 </html>

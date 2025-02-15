@@ -157,8 +157,8 @@
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text font-menu-theme">Administrator</span>
             </li>
-            <li class="menu-item {{ request()->is('admin/dashbord*') ? 'active' : ''}}">
-              <a href="/admin/dashbord" class="menu-link font-menu-theme">
+            <li class="menu-item {{ request()->is('admin/dashboard*') ? 'active' : ''}}">
+              <a href="/admin/dashboard" class="menu-link font-menu-theme">
                 <i class="menu-icon tf-icons ti ti-dashboard"></i>
                 <div data-i18n="Dashboard">Dashboard</div>
               </a>

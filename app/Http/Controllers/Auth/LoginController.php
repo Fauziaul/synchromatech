@@ -41,6 +41,6 @@ class LoginController extends Controller
     
     protected function authenticated()
     {
-        return redirect('/admin');
+        return redirect('/admin/dashboard');
     }
 }

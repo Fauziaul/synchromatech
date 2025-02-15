@@ -135,16 +135,11 @@
     .password-wrapper {
         position: relative;
         width: 100%;
-        max-width: 400px;
     }
 
     .password-wrapper input {
         width: 100%;
-        padding: 10px 40px 10px 10px;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
+        padding-right: 40px; /* Beri ruang untuk ikon di kanan */
     }
 
     .toggle-password {
@@ -158,7 +153,7 @@
     }
 
     .toggle-password:hover {
-        color: #333;
+        color: #fff;
     }
 
     </style>
@@ -186,10 +181,10 @@
 
         <div class="row mb-3">
             <label for="password">Password</label>
-            <div class="col-md-6">
-                <div class="input-group">
+            <div class="col-md-12">
+                <div class="password-wrapper">
                     <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                    <span class="input-group-text" onclick="togglePasswordVisibility()" style="cursor: pointer;">
+                    <span class="toggle-password" onclick="togglePasswordVisibility()">
                         <i id="toggleIcon" class="bi bi-eye-slash"></i>
                     </span>
                 </div>
@@ -200,6 +195,7 @@
                 @enderror
             </div>
         </div>
+        
 
         <button type="submit">
             Login
@@ -215,6 +211,7 @@
     function togglePasswordVisibility() {
         const passwordField = document.getElementById('password');
         const toggleIcon = document.getElementById('toggleIcon');
+
         if (passwordField.type === 'password') {
             passwordField.type = 'text';
             toggleIcon.classList.remove('bi-eye-slash');

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,20 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('landingpage');
-});
-Route::get('/polaroid', function () {
-    return view('produk.polaroid');
-});
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('landingpage');
+Route::get('/kategori/{id}', [HomeController::class, 'produk'])->name('kategori.show');
+Route::get('/order/{id}', [HomeController::class, 'order'])->name('produk.order');
+
+
+
 Route::get('/order', function () {
     return view('order.polaroid');
 });
+
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Auth::routes();
 Route::middleware('auth')->prefix('admin')->group(function () {
         
-        Route::get('/dashbord', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
+        Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
 
         Route::prefix('/banner')->group(function () {
             Route::get('/', [App\Http\Controllers\BannerController::class, 'index'])->name('admin.banner.index');
@@ -45,7 +48,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             Route::get('/edit/{id}', [App\Http\Controllers\ProdukController::class, 'edit'])->name('admin.produk.edit');
             Route::post('/update/{id}', [App\Http\Controllers\ProdukController::class, 'update'])->name('admin.produk.update');
             Route::post('/status/{id}', [App\Http\Controllers\ProdukController::class, 'status'])->name('admin.produk.status');
-            Route::delete('/destroy{id}', [App\Http\Controllers\ProdukController::class, 'destroy'])->name('admin.produk.destroy');
+            Route::delete('/destroy/{id}', [App\Http\Controllers\ProdukController::class, 'destroy'])->name('admin.produk.destroy');
             Route::get('/detail/{id}', [App\Http\Controllers\ProdukController::class, 'detail'])->name('admin.produk.detail');
         });
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,6 +14,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin-template.dashboard');
+        $banner = Banner::all();
+        return view('admin-template.dashboard', compact('banner'));
     }
 }

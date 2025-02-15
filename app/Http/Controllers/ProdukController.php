@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProdukRequest;
 use App\Models\Kategori;
 use App\Models\Produk;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
@@ -18,7 +20,7 @@ class ProdukController extends Controller
     }
 
     public function show()  {
-        $produk = Produk::orderBy('created_at', 'desc')->get();
+        $produk = Produk::with('kategori')->orderBy('created_at', 'desc')->get();
 
         return DataTables::of($produk)
             ->addIndexColumn()
@@ -56,7 +58,110 @@ class ProdukController extends Controller
             ->rawColumns(['action', 'picture', 'status'])
             ->make(true);
     }
+    public function store(ProdukRequest $request){
+        try {
+            $file = null;
+            if ($request->file('picture')) {
+                $file = $request->file('picture')->store('id_produk', 'public');
+            }
+            
+            $produk = Produk::create([
+                'nama_produk' => $request->nama_produk,
+                'harga' => $request->harga,
+                'stok' => $request->stok,
+                'id_kategori' => $request->kategori,
+                'picture' => $file,
+                'status' => 0,
+            ]);
+            $produk->save();
 
+            return response()->json([
+                'error' => false,
+                'message' => 'Produk successfully Created!',
+                'modal' => '#modal-produk',
+                'table' => '#table-produk',
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'error' => true,
+                'message' => $e->getMessage(),
+            ]);
+        }
+    }
+
+    public function edit(String $id) {
+        $produk = produk::where('id_produk', $id)->first();
+        return $produk;
+    }
+
+    public function update(ProdukRequest $request, $id) {
+        try {
+            $file = null;
+            if ($request->file('picture')) {
+                $file = $request->file('picture')->store('produk', 'public');
+            }
+            $produk = produk::where('id_produk', $id)->first();
+            $produk->deskripsi = $request->deskripsi;
+            $produk->picture = $file;
+            $produk->updated_at = now();
+            $produk->status = 2;
+            $produk->save();
+            return response()->json([
+                'error' => false,
+                'message' => 'Image successfully Created!',
+                'modal' => '#modal-produk',
+                'table' => '#table-produk',
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'error' => true,
+                'message' => $e->getMessage(),
+            ]);
+        }       
+    }
+
+    public function status(String $id){
+        try {
+            $produk = produk::where('id_produk', $id)->first();
+            $produk->status = ($produk->status) ? false : true;
+            $produk->save();
+
+            return response()->json([
+                'error' => false,
+                'message' => 'Status successfully Updated!',
+                'table' => '#table-produk'
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'error' => true,
+                'message' => $e->getMessage(),
+            ]);
+        }
+    }
+
+    public function destroy($id) {
+        try {
+            $produk = Produk::Where('id_produk', $id)->first();
+            if ($produk) {
+                $produk->delete();
+                return response()->json([
+                    'error' => false,
+                    'message' => 'Produk successfully deleted!',
+                    'table' => '#table-produk'
+                ]);
+            } else {
+                return response()->json([
+                    'error' => true,
+                    'message' => 'Data not found!',
+                ]);
+            }
+        } catch (Exception $e) {
+            return response()->json([
+                'error' => true,
+                'message' => $e->getMessage(),
+            ]);
+        }
+    }
 
 
 

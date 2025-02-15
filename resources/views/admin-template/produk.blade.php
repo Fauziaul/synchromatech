@@ -44,6 +44,7 @@
                             <tr>
                                 <th style="max-width: 30px;">NO</th>
                                 <th >Nama Produk</th>
+                                <th >Kategori</th>
                                 <th>Dibuat</th>
                                 <th>Diperbarui</th>
                                 <th>Gambar</th>
@@ -67,9 +68,7 @@
             </div>
             <form class="default-form" method="POST" enctype="multipart/form-data" action="{{ url('/admin/produk/store') }}">
                 @csrf
-                <div class="modal-body">
-
-                    
+                <div class="modal-body">                  
                     <div class="card-body">
                         <div class="d-flex align-items-start align-items-sm-center gap-4">
                             @if ($produk?->picture?? '')
@@ -150,8 +149,12 @@
         
             },
             {
-                data: "deskripsi",
-                name: "deskripsi"
+                data: "nama_produk",
+                name: "nama_produk"
+            },
+            {
+                data: "kategori.deskripsi",
+                name: "kategori"
             },
             {
                 data: "created_at",
