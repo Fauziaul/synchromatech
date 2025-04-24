@@ -40,24 +40,49 @@
                   
                   <a data-id='{{$k->id_kategori}}' onclick=detail($(this))><img src="{{ asset('storage/' . $k->picture) }}" class="d-block w-100" style="max-height: 300px; object-fit: cover;">
                   </a> 
-                  <p class="icon-name text-capitalize text-truncate mb-0">{{$k?->deskripsi??'Kategori'}}</p>
                 </div>
-              </div>
+                <p class="icon-name text-capitalize text-truncate mb-1">{{$k?->deskripsi??'Kategori'}}</p>
+            </div>
               @endforeach
             </div>
-      </div>
-  </div>
-
-    <div class="footer-divider"></div>
-    
-        <div class="tab-content p-4">
-            <div class="card border" >
-                <div class="card-body text-center">
-                    <h3 class="text-black">Tentang Syn Chroma Tech</h3>
-                    <p class="text-black">Di Syn Chroma Tech, kami menawarkan beragam produk percetakan dan penyedia berbagai macam sparepart mesin percetakan. Dengan mengakses atau menggunakan situs web Syn Chroma Tech, Anda tidak diperbolehkan melanggar hukum, mengganggu atau merusak sistem, atau tindakan lain yang dapat merugikan Syn Chroma Tech.</p>
-                </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <h2>Mengapa Memilih Sycrhomatech?</h2>
+        <div class="features">
+            <div class="feature">
+                <img src="{{ asset('background/1.png') }}" alt="Pemesanan Mudah">
+                <h3>Pemesanan Mudah</h3>
+                <p>Sycrhomatech menyediakan platform pemesanan online yang mudah digunakan...</p>
             </div>
-        </div>        
+            <div class="feature">
+                <img src="{{ asset('background/2.png') }}" alt="Kualitas Cetak Unggul">
+                <h3>Kualitas Cetak Unggul</h3>
+                <p>Kami berkomitmen untuk memberikan kualitas cetak yang unggul...</p>
+            </div>
+            <div class="feature">
+                <img src="{{ asset('background/3.png') }}" alt="Design Grafis Profesional">
+                <h3>Design Grafis Profesional</h3>
+                <p>Sycrhomatech juga menawarkan layanan desain grafis profesional...</p>
+            </div>
+            <div class="feature">
+                <img src="{{ asset('background/4.png') }}" alt="Pengiriman Cepat">
+                <h3>Pengiriman Cepat</h3>
+                <p>Sycrhomatech memberikan layanan pengiriman yang cepat dan handal...</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tab-content p-4">
+        <div class="card border" >
+            <div class="card-body text-center">
+                <h3 class="text-black">Tentang SynChromaTech</h3>
+                <p class="text-black">Di SynChromaTech, kami menawarkan beragam produk percetakan dan penyedia berbagai macam sparepart mesin percetakan. Dengan mengakses atau menggunakan situs web Syn Chroma Tech, Anda tidak diperbolehkan melanggar hukum, mengganggu atau merusak sistem, atau tindakan lain yang dapat merugikan Syn Chroma Tech.</p>
+            </div>
+        </div>
+    </div>        
     
 @endsection
 @section('page_script')

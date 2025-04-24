@@ -2,15 +2,12 @@
 @section('content')
 
 <div class="ms-4 mt-4 mb-2">
-    <h4>Kategori : {{$kategori->deskripsi}}</h4>
-    <div class="col-12">
+    <h4>Kategori / {{$kategori->deskripsi}}</h4>
+    {{-- <div class="col-12">
         <figure class="image" style="width: 100%; margin: 0;">
             <a ><img src="{{asset('storage/' . $kategori->picture)}}" alt="PT Wings Surya" class="custom-image" /></a>
-            </figure>
-    </div>
-    <a href="{{ url()->previous() }}" class="btn btn-secondary mt-2">
-        <i class="bi bi-arrow-left"></i> Kembali
-    </a>
+        </figure>
+    </div> --}}
 </div>
 <div class="tab-content">
     <div class="tab-pane fade show active" id="navs-pills-justified-terbaru">
@@ -24,14 +21,14 @@
                         
                         <div class="col-12">
                             <figure class="image" style="width: 100%; margin: 0;">
-                                <a data-id='{{$p->id_produk}}' onclick=order($(this)) ><img src="{{asset('storage/' . $p->picture)}}" alt="PT Wings Surya" class="custom-image" /></a>
+                                <a data-id="{{$p->id_produk}}" onclick=order($(this)) ><img src="{{asset('storage/' . $p->picture)}}" alt="PT Wings Surya" class="custom-image" /></a>
                                 </figure>
                         </div>
                         <div class="col-12 mt-3">
                             <p style="text-align: center; font-size: 18px; margin-bottom: 0;">{{$p->nama_produk}}</p>
                             <p style="text-align: center; color:red; font-size: 16px; margin-bottom: 0;">Mulai dari Rp. {{$p->harga}}</p>
                         </div>
-
+                            <a data-id="{{$p->id_produk}}" onclick=order($(this)) class="btn btn-secondary mt-2">Pesan</a>
                     </div>
                    
                 </div>

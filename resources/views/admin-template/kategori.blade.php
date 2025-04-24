@@ -1,5 +1,4 @@
-    @extends('admin-template.template')
-
+@extends('admin-template.template')
 @section('page_style')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="{{url('assets/vendor/libs/sweetalert2/sweetalert2.css')}}" />

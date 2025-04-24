@@ -55,8 +55,56 @@
         object-fit: cover; /* Menjaga proporsi gambar */
         border-radius: 0; /* Opsional jika ingin sudut tetap tajam */
         }
-
-
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            background: #b39d872c;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        .feature {
+            background:     ;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 23%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .feature img {
+            width: 40%;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .feature h3 {
+            color: #333;
+            font-size: 18px;
+        }
+        .feature p {
+            color: #666;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            .feature {
+                width: 80%;
+            }
+        }
     </style>
 </head>
 
@@ -70,7 +118,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-
+    
     <nav class="navbar navbar-expand-lg" style="background-color: #b39d87;">
         <div class="container-fluid">
             <div class="nav-item">
